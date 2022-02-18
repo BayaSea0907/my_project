@@ -41,6 +41,9 @@ end
 group :development do
   gem "web-console"
   gem 'slim_lint'
+  gem 'rubocop-rails'
+  gem 'rubocop-performance'
+  gem 'rubocop-rspec'
 end
 
 group :test do
