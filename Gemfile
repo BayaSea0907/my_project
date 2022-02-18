@@ -6,13 +6,15 @@ ruby "3.1.0"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.2", ">= 7.0.2.2"
 gem 'sorcery'
-gem "sqlite3", "~> 1.4" # DB
+gem "sqlite3", "~> 1.4"
 gem "puma", "~> 5.0"
-# gem "redis", "~> 4.0"
+gem 'bulma-rails'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
+# Cache key value stores.
+# gem "redis", "~> 4.0"
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
