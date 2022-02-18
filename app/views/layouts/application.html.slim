@@ -1,22 +1,16 @@
 doctype html
 html
   head
-    title
-      | MyProject
-    meta[name="viewport" content="width=device-width,initial-scale=1"]
+    title MyProject
+    meta name="viewport" content="width=device-width,initial-scale=1"
+    meta charset="utf-8"
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
   body
-    #nav
-      - if current_user
-        = link_to "プロフィール編集", edit_user_path(current_user.id)
-        = link_to "ログアウト", :logout, method: :post
-      - else
-        = link_to "会員登録", new_user_path
-        |  | 
-        = link_to "ログイン", :login
+    = render 'layouts/navigation'
+
     div
       p#notice
         = flash[:notice]
