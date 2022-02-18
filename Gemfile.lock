@@ -104,6 +104,9 @@ GEM
     ffi (1.15.5)
     globalid (1.0.0)
       activesupport (>= 5.0)
+    hpricot (0.8.6)
+    html2slim (0.2.0)
+      hpricot
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.0.2)
@@ -300,6 +303,7 @@ DEPENDENCIES
   bulma-rails
   capybara
   debug
+  html2slim
   importmap-rails
   puma (~> 5.0)
   rails (~> 7.0.2, >= 7.0.2.2)

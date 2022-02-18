@@ -1,0 +1,41 @@
+nav.navbar role="navigation" aria-label="main navigation"
+  .navbar-brand
+    a.navbar-item href=root_path
+      h1.title MyProject
+    a.navbar-burger role="button" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample"
+      span aria-hidden="true"
+      span aria-hidden="true"
+      span aria-hidden="true"
+
+  #navbarBasicExample.navbar-menu
+    .navbar-start
+      .navbar-item
+        = link_to '会員一覧', users_path
+      .navbar-item.has-dropdown.is-hoverable
+        a.navbar-link
+          |  More
+        .navbar-dropdown
+          a.navbar-item
+            |  About
+          a.navbar-item
+            |  Jobs
+          a.navbar-item
+            |  Contact
+          hr.navbar-divider
+          a.navbar-item
+            |  Report an issue
+
+    .navbar-end
+      .navbar-item
+        .buttons
+          - if current_user
+            .button.is-light
+              = link_to 'プロフィール編集', edit_user_path(current_user)
+            .button.is-light
+              = link_to 'ログアウト', logout_path
+          - else
+            .button.is-primary
+              strong
+                = link_to '会員登録', new_user_path
+            .button.is-light
+              = link_to 'ログイン', login_path

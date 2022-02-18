@@ -40,11 +40,12 @@ end
 
 group :development do
   gem 'annotate'
-  gem 'web-console'
+  gem 'html2slim'
   gem 'slim_lint'
   gem 'rubocop-rails'
   gem 'rubocop-performance'
   gem 'rubocop-rspec'
+  gem 'web-console'
 end
 
 group :test do
