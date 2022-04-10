@@ -23,4 +23,8 @@
 #
 class User < ApplicationRecord
   authenticates_with_sorcery!
+
+  include EmailValidatable
+
+  validates :email, presence: true
 end
