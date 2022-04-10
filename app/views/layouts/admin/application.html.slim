@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title MyProject
+    meta name="viewport" content="width=device-width,initial-scale=1"
+    meta charset="utf-8"
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag "application", "data-turbo-track": "reload"
+    = javascript_importmap_tags
+  body
+    h1 管理画面
+
+    div
+      p#notice
+        = flash[:notice]
+      p#alert
+        = flash[:alert]
+    = yield
