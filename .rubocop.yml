@@ -34,4 +34,4 @@ Style/FrozenStringLiteralComment:
 
 # Controller処理で引っかからないために追加
 Layout/LineLength:
-  Max: 100
+  Max: 120
