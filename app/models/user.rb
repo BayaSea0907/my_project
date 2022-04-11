@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: users
@@ -24,7 +26,5 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
 
-  include EmailValidatable
-
-  validates :email, presence: true
+  include Validatable::Email
 end
