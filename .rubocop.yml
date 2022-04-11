@@ -1,10 +1,6 @@
-require:
-  - rubocop-performance
-  - rubocop-rails
-  - rubocop-rspec
-
 AllCops:
-  TargetRubyVersion: 2.7.0
+  TargetRubyVersion: 3.1.0
+  NewCops: enable
   Exclude:
     - 'Gemfile.lock'
     - 'db/*'
@@ -17,21 +13,50 @@ AllCops:
     - 'node_modules/**/*'
     - 'spec/**/*.rb'
 
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+
 # 日本語入力を可能にする
 Style/AsciiComments:
   Enabled: false
 
-# クラス説明を記述しない
+# 伝わりやすいクラス名を考えればいいだけなので、クラス説明の記述を無効化する
 Style/Documentation:
   Enabled: false
 
-# 複数ラインの場合、lambdaメソッドを強制しない
+# 複数ラインの場合でもlambdaメソッドを強制されたくないので無効化する
 Style/Lambda:
   Enabled: false
 
+# 行頭に毎回`frozen_string_literal: true`を書きたくないので無効化する
 Style/FrozenStringLiteralComment:
   Enabled: false
 
-# Controller処理で引っかからないために追加
+# 変数名にこだわると行が長くなりがちなので120まで許可
 Layout/LineLength:
+  Max: 120
+
+
+# RSpecはブロックを長く書きがちなので除外する
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*.rb'
+
+# ======================-
+# RSpec
+# ======================-
+#
+# itの中身を長く書きがちなので100行まで許可する。
+# letやbeforeを使うとコードリーディングの際にスクロール操作が増えて疲れるので、できるだけitでデータ用意などを行いたい派。
+RSpec/ExampleLength:
   Max: 100
+
+# パターンが似てるテストはitのなかにまとめて書いて見比べたい派なので無効化する
+RSpec/MultipleExpectations:
+  Enabled: false
+
+# 英語は苦手なので無効化する
+RSpec/ContextWording:
+  Enabled: false
