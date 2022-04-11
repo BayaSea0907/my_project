@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Validatable
   module Email
     extend ActiveSupport::Concern
