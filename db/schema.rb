@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_02_17_165910) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_12_172757) do
+  create_table "articles", force: :cascade do |t|
+    t.string "title", limit: 255, null: false
+    t.text "content", null: false
+    t.index ["title"], name: "index_articles_on_title", unique: true
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "crypted_password"
