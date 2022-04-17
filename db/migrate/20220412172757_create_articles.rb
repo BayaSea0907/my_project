@@ -3,6 +3,8 @@ class CreateArticles < ActiveRecord::Migration[7.0]
     create_table :articles do |t|
       t.string :title, null: false, limit: 255, index: { unique: true }, comment: 'タイトル'
       t.text :content, null: false, comment: '本文'
+
+      t.timestamps null: false
     end
   end
 end

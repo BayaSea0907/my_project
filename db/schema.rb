@@ -14,6 +14,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_12_172757) do
   create_table "articles", force: :cascade do |t|
     t.string "title", limit: 255, null: false
     t.text "content", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["title"], name: "index_articles_on_title", unique: true
   end
 

@@ -1,0 +1,25 @@
+h1.title 記事 一覧
+
+.field
+  .control
+    = link_to '新規作成', new_admin_article_path, class: 'button'
+
+table.table
+  thead
+    tr
+      th ID
+      th タイトル
+      th 本文
+      th
+      th
+      th
+  tbody
+    - @articles.each do |article|
+      tr
+        td = article.id
+        td = article.title
+        td = article.content
+        td = link_to '詳細', admin_article_path(article), class: 'button'
+        td = link_to '編集', edit_admin_article_path(article), class: 'button'
+        td = link_to '削除', admin_article_path(article), class: 'button is-danger', method: :delete, data: { confirm: '本当に削除しますか？'}
+
