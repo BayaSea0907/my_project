@@ -1,4 +1,3 @@
-
 module Admin
   class ArticlesController < Admin::ApplicationController
     before_action :set_article, only: %i[show edit update]
@@ -18,7 +17,7 @@ module Admin
       @article = Article.new(article_params)
 
       if @article.save
-        redirect_to admin_article_path(@article), notice: '登録に成功しました'
+        redirect_to admin_article_path(@article), notice: t('.success')
       else
         render :new
       end
@@ -28,7 +27,7 @@ module Admin
 
     def update
       if @article.update(article_params)
-        redirect_to @article
+        redirect_to admin_article_path(@article), notice: t('.success')
       else
         render :edit
       end
@@ -36,9 +35,9 @@ module Admin
 
     def destroy
       if @article.destroy
-        redirect_to action: :show, alert: @article.errors.full_messages
+        redirect_to action: :index, notice: t('.success')
       else
-        redirect_to action: :index
+        redirect_to action: :show, alert: @article.errors.full_messages
       end
     end
 
