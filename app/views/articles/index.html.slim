@@ -1,0 +1,19 @@
+.article-search
+  = form_with(url: search_articles_path, method: :get) do |form|
+    .article-search__form
+      = form.text_field :query
+      = form.submit '検索'
+hr
+
+.article-list
+  - @articles.each do |article|
+    .article-cassette
+      p.article-cassette__title
+        span 「
+        = article.title
+        span 」
+
+      br
+
+      p.article-cassette__content
+        == article.content

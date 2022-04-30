@@ -15,4 +15,10 @@
 class Article < ApplicationRecord
   validates :title, presence: true, length: { maximum: 255 }
   validates :content, presence: true, length: { minimum: 50 }
+
+  scope :search, ->(query) do
+    sanitized_query = "%#{sanitize_sql_like(query)}%"
+    where('title LIKE :title OR content LIKE :content',
+          { title: sanitized_query, content: sanitized_query })
+  end
 end
