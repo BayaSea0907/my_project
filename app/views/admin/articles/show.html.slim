@@ -1,0 +1,30 @@
+h1.title 記事 詳細
+
+table.table.is-striped
+  tbody
+    tr
+      td ID
+      td = @article.title
+    tr
+      td タイトル
+      td = @article.title
+    tr
+      td 本文
+      td == @article.content
+    tr
+      td 作成日時
+      td == @article.created_at
+    tr
+      td 更新日時
+      td == @article.updated_at
+
+.field
+  .control
+    = link_to '削除', admin_article_path(@article), class: 'button is-danger', method: :delete, data: { confirm: '本当に削除しますか？' }
+
+.field.is-grouped
+  .control
+    = link_to '一覧に戻る', admin_articles_path, class: 'button'
+  .control
+    = link_to '編集', edit_admin_article_path(@article), class: 'button'
+

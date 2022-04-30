@@ -1,0 +1,37 @@
+- if @article.errors.any?
+  .notification.is-danger.is-light
+    ul
+      - @article.errors.full_messages.each do |message|
+        li = message
+
+= form_with(model: [:admin, @article], local: true) do |form|
+  .field
+    .label
+      = form.label :id
+    .control
+      = @article.id
+
+  .field
+    .label
+      => form.label :title
+      span.tag.is-warning 必須
+    .control
+      = form.text_field :title, class: 'input'
+
+  .field
+    .label
+      = form.label :content
+    .control
+      = form.text_area :content
+
+  .field
+    .actions = form.submit '保存', class: 'button is-success'
+
+br
+
+.field.is-grouped
+  .control
+    = link_to '一覧に戻る', admin_articles_path, class: 'button'
+  - if @article.persisted?
+    .control
+      = link_to '詳細', admin_article_path(@article), class: 'button'

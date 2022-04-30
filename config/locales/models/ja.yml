@@ -1,0 +1,18 @@
+---
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      article: 記事
+    attributes:
+      user:
+        id: ID
+        email: メールアドレス
+        created_at: 作成日時
+        updated_at: 更新日時
+      article:
+        id: ID
+        title: タイトル
+        content: 本文
+        created_at: 作成日時
+        updated_at: 更新日時
